@@ -1,32 +1,37 @@
-body {
-     margin: 20px auto;
-     font-family: "Lato";
-     background: #666;
-     color: #fff;
-}
-
 * {
      margin: 0;
      padding: 0;
+}
+
+body {
+     margin: 50px auto;
+     font-family: "Lato";
+     background: #666;
+     color: #fff;
 }
 
 h2 {
      font-weight: bold;
      font-size: 2rem;
 }
+
 p {
      font-family: "Reenie Beanie";
      font-size: 2rem;
 }
+
 ul,
 li {
      list-style: none;
 }
+
 ul {
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
+     margin-top: 20px;
 }
+
 ul li a {
      text-decoration: none;
      color: #000;
@@ -46,12 +51,14 @@ ul li:nth-child(even) a {
      top: 5px;
      background: #cfc;
 }
+
 ul li:nth-child(3n) a {
      transform: rotate(-3deg);
      position: relative;
      top: -5px;
      background: #ccf;
 }
+
 ul li:nth-child(5n) a {
      transform: rotate(5deg);
      position: relative;
