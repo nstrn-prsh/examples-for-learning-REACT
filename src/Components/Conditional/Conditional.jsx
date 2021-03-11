@@ -25,6 +25,9 @@ class Conditional extends Component {
                     <Greeting isLoggedIn={this.state.isLoggedIn} />
                     <br />
                     {btn}
+                    <br />
+                    <br />
+                    {this.state.isLoggedIn && <p>this is the 3rd way!</p>}
                </div>
           );
      }
