@@ -15,19 +15,26 @@ class Conditional extends Component {
      };
 
      render() {
+          /*
           let btn = null;
           if (this.state.isLoggedIn)
                btn = <LogOut handleLogOut={this.handleLogOut} />;
           else btn = <LogIn handleLogIn={this.handleLogIn} />;
+          */
 
           return (
                <div>
                     <Greeting isLoggedIn={this.state.isLoggedIn} />
                     <br />
-                    {btn}
-                    <br />
+                    {/* {btn} */}
                     <br />
                     {this.state.isLoggedIn && <p>this is the 3rd way!</p>}
+                    <br />
+                    {this.state.isLoggedIn ? (
+                         <LogOut handleLogOut={this.handleLogOut} />
+                    ) : (
+                         <LogIn handleLogIn={this.handleLogIn} />
+                    )}
                </div>
           );
      }
