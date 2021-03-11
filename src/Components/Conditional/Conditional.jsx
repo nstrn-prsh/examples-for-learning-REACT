@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Greeting from "./Greeting";
 import LogIn from "./LogIn";
 import LogOut from "./LogOut";
+import Message from "./Message";
 
 class Conditional extends Component {
      state = { isLoggedIn: true };
@@ -35,6 +36,8 @@ class Conditional extends Component {
                     ) : (
                          <LogIn handleLogIn={this.handleLogIn} />
                     )}
+                    <br />
+                    <Message isLoggedIn={this.state.isLoggedIn} />
                </div>
           );
      }
