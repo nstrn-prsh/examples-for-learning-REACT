@@ -1,4 +1,5 @@
 import Note from "./Note";
+import "./stickyNote.css";
 
 const StickyNote = () => {
      const noteData = [

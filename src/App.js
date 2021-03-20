@@ -9,6 +9,7 @@ import Conditional from "./Components/Conditional/Conditional";
 // b
 import IncreaseCounter from "./LifeCycles/IncreaseCounter/IncreaseCounter";
 import IpGeoLocation from "./LifeCycles/componentDidMount/IpGeoLocation";
+import Posts from "./LifeCycles/componentDidUpdate/Posts";
 
 function App() {
      return (
@@ -21,7 +22,8 @@ function App() {
                {/* <Conditional /> */}
                {/* b */}
                {/* <IncreaseCounter /> */}
-               <IpGeoLocation />
+               {/* <IpGeoLocation /> */}
+               <Posts />
           </Fragment>
      );
 }
