@@ -10,6 +10,7 @@ import Conditional from "./Components/Conditional/Conditional";
 import IncreaseCounter from "./LifeCycles/IncreaseCounter/IncreaseCounter";
 import IpGeoLocation from "./LifeCycles/componentDidMount/IpGeoLocation";
 import Posts from "./LifeCycles/componentDidUpdate/Posts";
+import Clock2 from "./LifeCycles/componentWillUnmount/Clock2";
 
 function App() {
      return (
@@ -23,7 +24,8 @@ function App() {
                {/* b */}
                {/* <IncreaseCounter /> */}
                {/* <IpGeoLocation /> */}
-               <Posts />
+               {/* <Posts /> */}
+               <Clock2 />
           </Fragment>
      );
 }
