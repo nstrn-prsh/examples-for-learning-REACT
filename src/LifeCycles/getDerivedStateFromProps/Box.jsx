@@ -9,15 +9,15 @@ class Box extends Component {
           };
      }
 
-     static getDerivedStatesFromProps(nextProps, prevState) {
-          if (nextProps.userId !== prevState.prevPropsUserId) {
-               return {
-                    user: null,
-                    prevPropsUserId: nextProps.userId,
-               };
-          }
-          return null;
-     }
+     //  static getDerivedStatesFromProps(nextProps, prevState) {
+     //       if (nextProps.userId !== prevState.prevPropsUserId) {
+     //            return {
+     //                 user: null,
+     //                 prevPropsUserId: nextProps.userId,
+     //            };
+     //       }
+     //       return null;
+     //  }
 
      componentDidMount() {
           this.getUserHandler(this.props.userId).then((user) =>
@@ -25,13 +25,13 @@ class Box extends Component {
           );
      }
 
-     componentDidUpdate(prevProps) {
-          if (prevProps.userId !== this.props.userId) {
-               this.getUserHandler(this.props.userId).then((user) =>
-                    this.setState({ user })
-               );
-          }
-     }
+     //  componentDidUpdate(prevProps) {
+     //       if (prevProps.userId !== this.props.userId) {
+     //            this.getUserHandler(this.props.userId).then((user) =>
+     //                 this.setState({ user })
+     //            );
+     //       }
+     //  }
 
      async getUserHandler(userId) {
           const response = await fetch(

@@ -29,7 +29,7 @@ class UserInfo extends Component {
                          selected={selected}
                          selectUserHandler={this.selectUserHandler}
                     />
-                    <Box userId={users[selected]} />
+                    <Box key={users[selected]} userId={users[selected]} />
                </div>
           );
      }
