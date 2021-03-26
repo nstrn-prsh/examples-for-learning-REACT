@@ -1,0 +1,19 @@
+body {
+     padding: 15px;
+}
+
+input {
+     margin-left: 25px;
+}
+
+div {
+     margin: 0px auto;
+     margin-top: 20px;
+}
+
+.section {
+     padding: 10px;
+     background-color: slateblue;
+     border-radius: 10px;
+     max-width: 300px;
+}

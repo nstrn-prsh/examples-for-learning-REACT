@@ -11,6 +11,7 @@ import IncreaseCounter from "./LifeCycles/IncreaseCounter/IncreaseCounter";
 import IpGeoLocation from "./LifeCycles/componentDidMount/IpGeoLocation";
 import Posts from "./LifeCycles/componentDidUpdate/Posts";
 import Clock2 from "./LifeCycles/componentWillUnmount/Clock2";
+import UserInfo from "./LifeCycles/getDerivedStateFromProps/UserInfo";
 
 function App() {
      return (
@@ -25,7 +26,8 @@ function App() {
                {/* <IncreaseCounter /> */}
                {/* <IpGeoLocation /> */}
                {/* <Posts /> */}
-               <Clock2 />
+               {/* <Clock2 /> */}
+               <UserInfo />
           </Fragment>
      );
 }
