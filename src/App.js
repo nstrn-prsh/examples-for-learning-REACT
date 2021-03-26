@@ -12,6 +12,7 @@ import IpGeoLocation from "./LifeCycles/componentDidMount/IpGeoLocation";
 import Posts from "./LifeCycles/componentDidUpdate/Posts";
 import Clock2 from "./LifeCycles/componentWillUnmount/Clock2";
 import UserInfo from "./LifeCycles/getDerivedStateFromProps/UserInfo";
+import Root from "./LifeCycles/shouldComponentUpdate/Root";
 
 function App() {
      return (
@@ -27,7 +28,8 @@ function App() {
                {/* <IpGeoLocation /> */}
                {/* <Posts /> */}
                {/* <Clock2 /> */}
-               <UserInfo />
+               {/* <UserInfo /> */}
+               <Root />
           </Fragment>
      );
 }

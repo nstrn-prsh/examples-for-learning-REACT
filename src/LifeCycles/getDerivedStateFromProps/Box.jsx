@@ -9,7 +9,7 @@ class Box extends Component {
           };
      }
 
-     //  static getDerivedStatesFromProps(nextProps, prevState) {
+     //  static getDerivedStateFromProps(nextProps, prevState) {
      //       if (nextProps.userId !== prevState.prevPropsUserId) {
      //            return {
      //                 user: null,
