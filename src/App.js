@@ -13,6 +13,7 @@ import Posts from "./LifeCycles/componentDidUpdate/Posts";
 import Clock2 from "./LifeCycles/componentWillUnmount/Clock2";
 import UserInfo from "./LifeCycles/getDerivedStateFromProps/UserInfo";
 import Root from "./LifeCycles/shouldComponentUpdate/Root";
+import SimpleInput from "./LifeCycles/createRef/SimpleInput";
 
 function App() {
      return (
@@ -29,7 +30,8 @@ function App() {
                {/* <Posts /> */}
                {/* <Clock2 /> */}
                {/* <UserInfo /> */}
-               <Root />
+               {/* <Root /> */}
+               <SimpleInput />
           </Fragment>
      );
 }
