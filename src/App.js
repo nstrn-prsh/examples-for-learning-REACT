@@ -14,6 +14,7 @@ import Clock2 from "./LifeCycles/componentWillUnmount/Clock2";
 import UserInfo from "./LifeCycles/getDerivedStateFromProps/UserInfo";
 import Root from "./LifeCycles/shouldComponentUpdate/Root";
 import SimpleInput from "./LifeCycles/createRef/SimpleInput";
+import SimpleInput2 from "./LifeCycles/createRef/SimpleInput2";
 
 function App() {
      return (
@@ -31,7 +32,8 @@ function App() {
                {/* <Clock2 /> */}
                {/* <UserInfo /> */}
                {/* <Root /> */}
-               <SimpleInput />
+               {/* <SimpleInput /> */}
+               <SimpleInput2 />
           </Fragment>
      );
 }
