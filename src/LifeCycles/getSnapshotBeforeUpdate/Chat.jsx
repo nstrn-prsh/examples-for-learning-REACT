@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 export default function Chat(props) {
@@ -9,7 +10,7 @@ export default function Chat(props) {
                          data-toggle='tooltip'
                          href='#'
                          data-placement='right'
-                         title=''
+                         title='any'
                     >
                          <img src={props.gravatar} alt='...' />
                          <i></i>
