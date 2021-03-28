@@ -15,7 +15,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import Root from "./LifeCycles/shouldComponentUpdate/Root";
 // import SimpleInput from "./LifeCycles/createRef/SimpleInput";
 // import SimpleInput2 from "./LifeCycles/createRef/SimpleInput2";
-import LogIn from "./LifeCycles/createRef/Login";
+// import LogIn from "./LifeCycles/createRef/Login";
+import CleanChat from "./LifeCycles/getSnapshotBeforeUpdate/CleanChat";
 
 function App() {
      return (
@@ -35,7 +36,8 @@ function App() {
                {/* <Root /> */}
                {/* <SimpleInput /> */}
                {/* <SimpleInput2 /> */}
-               <LogIn />
+               {/* <LogIn /> */}
+               <CleanChat />
           </Fragment>
      );
 }
