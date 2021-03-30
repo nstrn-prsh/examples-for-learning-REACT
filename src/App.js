@@ -18,7 +18,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import LogIn from "./LifeCycles/createRef/Login";
 // import CleanChat from "./LifeCycles/getSnapshotBeforeUpdate/CleanChat";
 // c
-import HookIntro from "./Hooks/intro/HookIntro";
+// import HookIntro from "./Hooks/intro/HookIntro";
+import SliderClash from "./Hooks/slider/SliderClash";
 
 function App() {
      return (
@@ -41,7 +42,8 @@ function App() {
                {/* <LogIn /> */}
                {/* <CleanChat /> */}
                {/* c */}
-               <HookIntro />
+               {/* <HookIntro /> */}
+               <SliderClash />
           </Fragment>
      );
 }
