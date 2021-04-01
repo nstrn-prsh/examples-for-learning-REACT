@@ -1,4 +1,5 @@
 import React from "react";
+import Buy from "../class&function/Buy";
 import CardImg from "./CardImg";
 import Containers from "./Containers";
 import Footer from "./Footer";
@@ -15,6 +16,7 @@ const Card = ({ hero }) => {
                     description={hero.description}
                     title={title}
                />
+               <Buy name={hero.name}/>
                <Footer title={title} units={hero.units} />
           </div>
      );
