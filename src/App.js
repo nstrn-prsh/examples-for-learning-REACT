@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Login from "./Hooks/dependencyArray/Login";
 // a
 // import Clock from "./Components/Clock/Clock";
 // import StickyNote from "./Components/StickyNote/StickyNote";
@@ -19,7 +20,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import CleanChat from "./LifeCycles/getSnapshotBeforeUpdate/CleanChat";
 // c
 // import HookIntro from "./Hooks/intro/HookIntro";
-import SliderClash from "./Hooks/slider/SliderClash";
+// import SliderClash from "./Hooks/slider/SliderClash";
+
 
 function App() {
      return (
@@ -43,7 +45,8 @@ function App() {
                {/* <CleanChat /> */}
                {/* c */}
                {/* <HookIntro /> */}
-               <SliderClash />
+               {/* <SliderClash /> */}
+               <Login />
           </Fragment>
      );
 }
