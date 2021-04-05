@@ -20,8 +20,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // c
 // import HookIntro from "./Hooks/intro/HookIntro";
 // import Login from "./Hooks/dependencyArray/Login";
-import SliderClash from "./Hooks/slider/SliderClash";
-
+// import SliderClash from "./Hooks/slider/SliderClash";
+import Counting from "./Hooks/useRef/Counting";
 
 function App() {
      return (
@@ -46,7 +46,8 @@ function App() {
                {/* c */}
                {/* <HookIntro /> */}
                {/* <Login /> */}
-               <SliderClash />
+               {/* <SliderClash /> */}
+               <Counting />
           </Fragment>
      );
 }
