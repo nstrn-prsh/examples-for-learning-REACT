@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./login.css";
 
 const Login = () => {
      const [getEmail, setEmail] = useState("");
      const [getError, setError] = useState();
 
+     const autoFocus = useRef();
+
      useEffect(() => {
+          autoFocus.current.focus();
           setError(false);
           fetch(`http://localhost:3000/user?email=${getEmail}`)
                .then((res) => res.json())
@@ -21,6 +24,7 @@ const Login = () => {
                <h1>Login</h1>
                <form method='post'>
                     <input
+                         ref={autoFocus}
                          type='email'
                          name='u'
                          placeholder='Email'
