@@ -12,9 +12,9 @@ export default function BuyFunction({ name }) {
      };
 
      return (
-        <div style={{display: 'inline-block'}}>
+          <div style={{ display: "inline-block", margin: "20px" }}>
                <button onClick={handleClick}>Buy</button>
-               <p>function</p>
+               {/* <p>function</p> */}
           </div>
      );
 }
