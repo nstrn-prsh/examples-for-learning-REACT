@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "Faker": "^0.7.2",
-    "react-loader-spinner": "^4.0.0"
+    "react-loader-spinner": "^4.0.0",
+    "react-toastify": "^7.0.3"
   }
 }

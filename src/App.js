@@ -19,9 +19,10 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import CleanChat from "./LifeCycles/getSnapshotBeforeUpdate/CleanChat";
 // c
 // import HookIntro from "./Hooks/intro/HookIntro";
-import Login from "./Hooks/dependencyArray/Login";
+// import Login from "./Hooks/dependencyArray/Login";
 // import SliderClash from "./Hooks/slider/SliderClash";
 // import Counting from "./Hooks/useRef/Counting";
+import Exercise from "./Hooks/exercise/Exercise";
 
 function App() {
      return (
@@ -45,9 +46,10 @@ function App() {
                {/* <CleanChat /> */}
                {/* c */}
                {/* <HookIntro /> */}
-               <Login />
+               {/* <Login /> */}
                {/* <SliderClash /> */}
                {/* <Counting /> */}
+               <Exercise />
           </Fragment>
      );
 }
