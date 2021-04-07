@@ -1,49 +1,71 @@
-import React, { useState, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 import Loader from "./loader/Loader";
 import Toast from "./toast/Toast";
 
-const Exercise = () => {
-     const [getToastify, setToastify] = useState({
+const init = (initialState) => {
+     return initialState;
+};
+
+const initialState = {
+     getToastify: {
           type: "success",
           msg: "",
-     });
-     const [getTitle, setTitle] = useState("");
-     const [getPostId, setPostId] = useState(1);
-     const [getLoading, setLoading] = useState(true);
+     },
+     getTitle: "",
+     getPostId: 1,
+     getLoading: true,
+};
 
-     const handleState = (type, payload) => {
-          switch (type) {
-               case "GET_ANSWER_SUCCESS":
-                    setTitle(payload.title);
-                    setLoading(false);
-                    setToastify({
+const reducer = (state, action) => {
+     switch (action.type) {
+          case "GET_ANSWER_SUCCESS":
+               return {
+                    ...state,
+                    getToastify: {
                          type: "success",
-                         msg: payload.msg,
-                    });
-                    break;
-               case "SEND_REQUEST":
-                    setPostId(payload);
-                    setLoading(true);
-                    break;
+                         msg: action.payload.msg,
+                    },
+                    getTitle: action.payload.title,
+                    getLoading: false,
+               };
 
-               default:
-                    break;
-          }
-     };
+          case "SEND_REQUEST":
+               return {
+                    ...state,
+                    getPostId: action.payload,
+                    getLoading: true,
+               };
+
+          default:
+               return state;
+     }
+};
+
+const Exercise = () => {
+     const [
+          { getToastify, getTitle, getPostId, getLoading },
+          dispatch,
+     ] = useReducer(reducer, initialState, init);
 
      useEffect(() => {
           fetch(`https://jsonplaceholder.typicode.com/posts/${getPostId}`)
                .then((res) => res.json())
                .then((post) => {
-                    handleState("GET_ANSWER_SUCCESS", {
-                         title: post.title,
-                         msg: `post ${getPostId} loaded!`,
+                    dispatch({
+                         type: "GET_ANSWER_SUCCESS",
+                         payload: {
+                              title: post.title,
+                              msg: `post ${getPostId} loaded!`,
+                         },
                     });
                });
      }, [getPostId]);
 
      const handleId = (e) => {
-          handleState("SEND_REQUEST", e.target.value);
+          dispatch({
+               type: "SEND_REQUEST",
+               payload: e.target.value,
+          });
      };
 
      return (
