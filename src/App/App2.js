@@ -1,11 +1,5 @@
 import { Fragment } from "react";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-// a
-// import Clock from "./Components/Clock/Clock";
-// import StickyNote from "./Components/StickyNote/StickyNote";
-// import OnClick from "./Components/Event/OnClick";
-// import Box from "./Components/Box/Box";
-// import Conditional from "./Components/Conditional/Conditional";
 // b
 // import IncreaseCounter from "./LifeCycles/IncreaseCounter/IncreaseCounter";
 // import IpGeoLocation from "./LifeCycles/componentDidMount/IpGeoLocation";
@@ -17,22 +11,10 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import SimpleInput2 from "./LifeCycles/createRef/SimpleInput2";
 // import LogIn from "./LifeCycles/createRef/Login";
 // import CleanChat from "./LifeCycles/getSnapshotBeforeUpdate/CleanChat";
-// c
-// import HookIntro from "./Hooks/intro/HookIntro";
-// import Login from "./Hooks/dependencyArray/Login";
-// import SliderClash from "./Hooks/slider/SliderClash";
-// import Counting from "./Hooks/useRef/Counting";
-import Exercise from "./Hooks/exercise/Exercise";
 
-function App() {
+function App2() {
      return (
           <Fragment>
-               {/* a */}
-               {/* <Clock /> */}
-               {/* <StickyNote /> */}
-               {/* <OnClick /> */}
-               {/* <Box /> */}
-               {/* <Conditional /> */}
                {/* b */}
                {/* <IncreaseCounter /> */}
                {/* <IpGeoLocation /> */}
@@ -44,14 +26,8 @@ function App() {
                {/* <SimpleInput2 /> */}
                {/* <LogIn /> */}
                {/* <CleanChat /> */}
-               {/* c */}
-               {/* <HookIntro /> */}
-               {/* <Login /> */}
-               {/* <SliderClash /> */}
-               {/* <Counting /> */}
-               <Exercise />
           </Fragment>
      );
 }
 
-export default App;
+export default App2;
