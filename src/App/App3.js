@@ -6,7 +6,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import SliderClash from "./Hooks/slider/SliderClash";
 // import Counting from "./Hooks/useRef/Counting";
 // import Exercise from "./Hooks/exercise/Exercise";
-import Memorization from "./../Hooks/useMemo/Memorization";
+// import Memorization from "./../Hooks/useMemo/Memorization";
+import MemoAndCallback from "../Hooks/useMemo/MemoAndCallback";
 
 function App3() {
      return (
@@ -17,7 +18,8 @@ function App3() {
                {/* <SliderClash /> */}
                {/* <Counting /> */}
                {/* <Exercise /> */}
-               <Memorization />
+               {/* <Memorization /> */}
+               <MemoAndCallback />
           </Fragment>
      );
 }
