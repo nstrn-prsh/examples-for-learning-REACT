@@ -1,14 +1,19 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import Child from "./Child";
 
+/* note: 
+olaviyat ba kharej kardane tabe az component hast
+na ba estefade az useMemo*/
 // function handle() {}
 
 const MemoAndCallback = () => {
      const [getCounter1, setCounter1] = useState(0);
      const [getCounter2, setCounter2] = useState(0);
 
-    //  function handle() {}
-      const handle = useMemo(() => function handle() {}, []);
+     //  function handle() {}
+     //   const handle = useMemo(() => function handle() {}, []);
+     /* note: in dota moadele ham hastan */
+     const handle = useCallback(function handle() {}, []);
 
      return (
           <div style={{ margin: "50px" }}>
