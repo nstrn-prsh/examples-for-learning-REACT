@@ -7,8 +7,9 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import Counting from "./Hooks/useRef/Counting";
 // import Exercise from "./Hooks/exercise/Exercise";
 // import Memorization from "./../Hooks/useMemo/Memorization";
-// import MemoAndCallback from "../Hooks/useMemo/MemoAndCallback";
-import Form from "../Hooks/customHooks/Form.jsx";
+// import MemoAndCallback from "./../Hooks/useMemo/MemoAndCallback";
+// import Form from "./../Hooks/customHooks/Form.jsx";
+import CounterLayout from "../Hooks/useLayoutEffect/CounterLayout";
 
 function App3() {
      return (
@@ -21,7 +22,8 @@ function App3() {
                {/* <Exercise /> */}
                {/* <Memorization /> */}
                {/* <MemoAndCallback /> */}
-               <Form />
+               {/* <Form /> */}
+               <CounterLayout />
           </Fragment>
      );
 }
