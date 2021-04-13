@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useDebugValue } from "react";
 
 const Custom = (init) => {
      const [getForm, setForm] = useState(init);
@@ -9,6 +9,11 @@ const Custom = (init) => {
                [target.name]: target.value,
           });
      };
+     useDebugValue(
+          getForm,
+          (getForm) => `${Object.keys(getForm).length} fields`
+     );
+
      return { getForm, handleForm };
 };
 
