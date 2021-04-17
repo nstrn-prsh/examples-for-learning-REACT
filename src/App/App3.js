@@ -9,7 +9,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import Memorization from "./../Hooks/useMemo/Memorization";
 // import MemoAndCallback from "./../Hooks/useMemo/MemoAndCallback";
 // import Form from "./../Hooks/customHooks/Form.jsx";
-import CounterLayout from "../Hooks/useLayoutEffect/CounterLayout";
+// import CounterLayout from "../Hooks/useLayoutEffect/CounterLayout";
+import Map from './../Components/CountryInfo/Map/Map.jsx';
 
 function App3() {
      return (
@@ -23,7 +24,8 @@ function App3() {
                {/* <Memorization /> */}
                {/* <MemoAndCallback /> */}
                {/* <Form /> */}
-               <CounterLayout />
+               {/* <CounterLayout /> */}
+               <Map />
           </Fragment>
      );
 }
