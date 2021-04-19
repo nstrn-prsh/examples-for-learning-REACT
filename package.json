@@ -39,6 +39,7 @@
     "Faker": "^0.7.2",
     "react-image-mapper": "0.0.15",
     "react-loader-spinner": "^4.0.0",
-    "react-toastify": "^7.0.3"
+    "react-toastify": "^7.0.3",
+    "wikijs": "^6.1.3"
   }
 }

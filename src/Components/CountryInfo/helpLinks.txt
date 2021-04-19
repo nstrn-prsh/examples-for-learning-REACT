@@ -22,3 +22,4 @@ https://rapidapi.com/salnazi/api/country-geo-codes
 https://www.npmjs.com/package/react-image-mapper
 https://www.freeformatter.com/json-formatter.html#ad-output
 https://www.freeformatter.com/json-formatter.html
+https://en.wikipedia.org/wiki/Special:ApiSandbox

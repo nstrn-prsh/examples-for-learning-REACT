@@ -10,7 +10,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import MemoAndCallback from "./../Hooks/useMemo/MemoAndCallback";
 // import Form from "./../Hooks/customHooks/Form.jsx";
 // import CounterLayout from "../Hooks/useLayoutEffect/CounterLayout";
-import Map from './../Components/CountryInfo/Map/Map.jsx';
+import Template from './../Components/CountryInfo/Template.jsx';
 
 function App3() {
      return (
@@ -25,7 +25,7 @@ function App3() {
                {/* <MemoAndCallback /> */}
                {/* <Form /> */}
                {/* <CounterLayout /> */}
-               <Map />
+               <Template />
           </Fragment>
      );
 }
