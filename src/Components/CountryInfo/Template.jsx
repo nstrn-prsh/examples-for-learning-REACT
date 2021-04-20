@@ -8,14 +8,28 @@ const Template = () => {
      const [getCountry, setCountry] = useState("australia");
      const [getSummary, setSummary] = useState("");
      const [getInfo, setInfo] = useState(null);
+     const [getFlag, setFlag] = useState(null);
 
      useEffect(() => {
           async function getData() {
                const page = await wiki().page(getCountry);
-               const [summary, info] = await Promise.all([
+               // wiki({ apiUrl: "https://fa.wikipedia.org/w/api.php" });
+               // await page.langlinks()
+               const [summary, info, images] = await Promise.all([
                     page.summary(),
                     page.info(),
+                    page.images(),
                ]);
+
+               const flag = info.imageFlag.replace(/\s/g, "-");
+               images.some((image) => {
+                    if (image.includes(flag)) {
+                         setFlag(image);
+                         return true;
+                    }
+                    return false;
+               });
+
                setSummary(summary);
                setInfo(info);
           }
@@ -29,7 +43,11 @@ const Template = () => {
      return (
           <>
                <div style={{ margin: "30px" }}>
-                    <Card selectedCountry={selectedCountry} info={getInfo} />
+                    <Card
+                         selectedCountry={selectedCountry}
+                         info={getInfo}
+                         flag={getFlag}
+                    />
                     <div className='row mt-3'>
                          <Summary summary={getSummary} />
                     </div>

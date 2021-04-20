@@ -1,11 +1,12 @@
 import React from "react";
 
-const Box = ({ info }) => {
+const Box = ({ info, flag }) => {
      return (
           <div className='col-12 col-md-3'>
                <div className='card'>
                     {info && (
                          <ul className='list-group list-group-flush'>
+                              <img src='flag' alt='flag' />
                               <li className='list-group-item'>
                                    country: {info.commonName}
                               </li>
