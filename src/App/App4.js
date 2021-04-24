@@ -4,7 +4,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import List from "../bestPractices/howToUseKeys/List";
 // import HOC from "../bestPractices/hoc/HOC";
 // import Provider from "./../bestPractices/contextApi/function/Provider";
-import Global from "./../bestPractices/contextApi/class/Global";
+// import Global from "./../bestPractices/contextApi/class/Global";
+import Container from './../bestPractices/pattern/container';
 
 function App4() {
      return (
@@ -13,7 +14,8 @@ function App4() {
                {/* <List /> */}
                {/* <HOC /> */}
                {/* <Provider /> */}
-               <Global />
+               {/* <Global /> */}
+               <Container />
           </Fragment>
      );
 }
