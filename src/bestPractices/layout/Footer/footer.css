@@ -1,0 +1,36 @@
+
+footer {
+     background: #283147;
+     min-height: 141px;
+     color: white;
+     margin-top: 20px;
+}
+footer img {
+     padding-top: 30px;
+}
+footer a {
+     text-decoration: none;
+     color: white;
+}
+footer a:hover {
+     color: #cbcbcb;
+     text-decoration: none;
+}
+footer .row {
+     height: 100%;
+}
+
+.back_to_top {
+     background-color: #c5454a;
+     text-align: center;
+     height: 41px;
+     line-height: 41px;
+} 
+
+.social_buttons a {
+     text-decoration: none;
+}
+
+#templatemo_copyright {
+     font-size: 0.9em;
+}

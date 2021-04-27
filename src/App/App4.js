@@ -6,7 +6,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import Provider from "./../bestPractices/contextApi/function/Provider";
 // import Global from "./../bestPractices/contextApi/class/Global";
 // import Container from './../bestPractices/pattern/container';
-import Implement from "../bestPractices/HttpClient/Implement";
+// import Implement from "../bestPractices/HttpClient/Implement";
+import Page from "../bestPractices/layout/Page/Page";
 
 function App4() {
      return (
@@ -17,7 +18,8 @@ function App4() {
                {/* <Provider /> */}
                {/* <Global /> */}
                {/* <Container /> */}
-               <Implement />
+               {/* <Implement /> */}
+               <Page />
           </Fragment>
      );
 }

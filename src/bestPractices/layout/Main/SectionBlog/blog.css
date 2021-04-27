@@ -1,0 +1,26 @@
+.blog_post {
+     position: relative;
+     float: left;
+     width: 50%;
+}
+.blog_posts_container {
+     max-width: 620px;
+}
+.blog_post h2 {
+     position: absolute;
+     background: #a8f662;
+     color: white;
+     top: 0;
+     right: 0;
+     padding: 10px 20px;
+     margin: 0;
+     text-align: center;
+}
+
+#blog .col-md-7 {
+     padding-right: 46px;
+     overflow: hidden;
+}
+#blog h1 {
+     background-color: #a8f662;
+}
