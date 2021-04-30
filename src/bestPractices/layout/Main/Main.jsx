@@ -1,18 +1,11 @@
 import React from "react";
-import SectionServices from "./SectionServices/SectionServices";
-import SectionSkills from "./SectionSkills/SectionSkills";
-import SectionPortfolio from "./SectionPortfolio/SectionPortfolio";
-import SectionBlog from "./SectionBlog/SectionBlog";
-import SectionContact from "./SectionContact/SectionContact";
+import Skills from "./Skills/Skills";
 
-const Main = () => {
+const Main = ({ children }) => {
      return (
-          <div className='main' style={{ margin: "100px auto", width:'90%' }}>
-               <SectionServices />
-               <SectionSkills />
-               <SectionPortfolio />
-               <SectionBlog />
-               <SectionContact />
+          <div className='main' style={{ margin: "100px auto", width: "90%" }}>
+               {children}
+               <Skills />
           </div>
      );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import './skills.css'
 
-const SectionSkills = () => {
+const Skills = () => {
      return (
           <section id='skills'>
                <div className='outer_container'>
@@ -95,4 +95,4 @@ const SectionSkills = () => {
      );
 };
 
-export default SectionSkills;
+export default Skills;

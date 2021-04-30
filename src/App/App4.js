@@ -7,7 +7,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import Global from "./../bestPractices/contextApi/class/Global";
 // import Container from './../bestPractices/pattern/container';
 // import Implement from "../bestPractices/HttpClient/Implement";
-import Page from "../bestPractices/layout/Page/Page";
+import Layout from './../bestPractices/layout/Layout';
 
 function App4() {
      return (
@@ -19,7 +19,7 @@ function App4() {
                {/* <Global /> */}
                {/* <Container /> */}
                {/* <Implement /> */}
-               <Page />
+               <Layout />
           </Fragment>
      );
 }

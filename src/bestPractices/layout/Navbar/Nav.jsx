@@ -1,9 +1,13 @@
 import React from "react";
+import { A } from "hookrouter";
 import "./nav.css";
 
 const Nav = () => {
      return (
-          <nav className='navbar navbar-default navbar-fixed-top' role='navigation'>
+          <nav
+               className='navbar navbar-default navbar-fixed-top'
+               role='navigation'
+          >
                <div className='container'>
                     <div className='row'>
                          <div className='col-md-2 col-sm-2 col-xs-12'>
@@ -21,12 +25,12 @@ const Nav = () => {
                                         <span className='icon-bar'></span>
                                         <span className='icon-bar'></span>
                                    </button>
-                                   <a href='#' className='navbar-brand'>
+                                   <A href='#' className='navbar-brand'>
                                         <img
                                              src='./../images/logo_PNG_source.png'
                                              alt='karma'
                                         />
-                                   </a>
+                                   </A>
                               </div>
                          </div>
 
@@ -34,15 +38,16 @@ const Nav = () => {
                               <div className='navbar-collapse collapse menu'>
                                    <ul className='nav navbar-nav navbar-right'>
                                         <li>
-                                             <a href='#home'>
-                                                  <i className='fa fa-home'></i>Home
-                                             </a>
+                                             <A href='/'>
+                                                  <i className='fa fa-home'></i>
+                                                  Home
+                                             </A>
                                         </li>
                                         <li>
-                                             <a href='#about'>
+                                             <A href='/blog'>
                                                   <i className='fa fa-user'></i>
-                                                  About Us
-                                             </a>
+                                                  Blog
+                                             </A>
                                         </li>
                                         <li>
                                              <a href='#services'>
