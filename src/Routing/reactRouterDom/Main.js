@@ -16,18 +16,34 @@ const Main = () => {
                     <li>
                          <Link to='/auth'>Auth page</Link>
                     </li>
+                    <li>
+                         <Link to='/contact'>Contact page</Link>
+                    </li>
+                    <li>
+                         <Link to='/link'>Children page</Link>
+                    </li>
                </ul>
 
+               {/* first priority */}
+               <Route
+                    path='/link'
+                    children={() => (
+                         <p>it appears whether path is correct or not!</p>
+                    )}
+               />
+
                <Switch>
-                    <Route path='/blog'>
-                         <Blog />
-                    </Route>
+                    {/* fourth priority */}
+                    <Route path='/blog' component={Blog} />
+                    {/* Best way */}
                     <Route path='/auth'>
                          <Auth />
                     </Route>
                     <Route exact path='/'>
                          <Home />
                     </Route>
+                    {/* third priority */}
+                    <Route path='/contact' render={() => <h1>hello!</h1>} />
                </Switch>
           </>
      );
