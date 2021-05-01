@@ -7,3 +7,7 @@ export function register(id, callback) {
 export function unRegister(id) {
      delete instance[id];
 }
+
+export function historyPushState(state = {}, title = "", to) {
+     window.history.pushState(state, title, to);
+}
