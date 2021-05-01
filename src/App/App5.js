@@ -1,9 +1,11 @@
-import Main from "./../makeRouter/Main";
+// import Main from './../makeRouter/Main';
+import Root from '../Routing/reactRouterDom/Root';
 
 function App5() {
      return (
           <>
-               <Main />
+               {/* <Main /> */}
+               <Root/>
           </>
      );
 }
