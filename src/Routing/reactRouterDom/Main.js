@@ -22,6 +22,15 @@ const Main = () => {
                     <li>
                          <Link to='/link'>Children page</Link>
                     </li>
+                    <li>
+                         <Link to='/params/sample'>Params</Link>
+                    </li>
+                    <li>
+                         <Link to='/params/sample/5'>Params w/ id</Link>
+                    </li>
+                    <li>
+                         <Link to='/match/5'>Match</Link>
+                    </li>
                </ul>
 
                {/* first priority */}
@@ -44,6 +53,15 @@ const Main = () => {
                     </Route>
                     {/* third priority */}
                     <Route path='/contact' render={() => <h1>hello!</h1>} />
+                    {/* PARAMS */}
+                    <Route exact path='/params/:slug'>
+                         <Blog />
+                    </Route>
+                    <Route path='/params/:slug/:id'>
+                         <Blog />
+                    </Route>
+                    {/* MATCH */}
+                    <Route path='/match/:id' component={Auth} />
                </Switch>
           </>
      );
