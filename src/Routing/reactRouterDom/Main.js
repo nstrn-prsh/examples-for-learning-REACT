@@ -5,7 +5,7 @@ import { Route, Switch, Link } from "react-router-dom";
 
 const Main = () => {
      return (
-          <>
+          <div style={{margin: '50px'}}>
                <ul>
                     <li>
                          <Link to='/'>Home page</Link>
@@ -63,7 +63,7 @@ const Main = () => {
                     {/* MATCH */}
                     <Route path='/match/:id' component={Auth} />
                </Switch>
-          </>
+          </div>
      );
 };
 
