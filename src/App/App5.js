@@ -1,19 +1,25 @@
 // import Main from './../makeRouter/Main';
 // import Root from '../Routing/reactRouterDom/Root';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+/*
 import MainLogin from "./../Routing/loginAuth/MainLogin";
 import { AuthProvider } from "./../Routing/loginAuth/Context/AuthUser";
+*/
+import ModalSwitch from "../Routing/modal/ModalSwitch";
 
 function App5() {
      return (
           <>
                {/* <Main /> */}
                {/* <Root/> */}
-               <BrowserRouter>
+               {/* <Router>
                     <AuthProvider>
                          <MainLogin />
                     </AuthProvider>
-               </BrowserRouter>
+               </Router> */}
+               <Router>
+                    <ModalSwitch />
+               </Router>
           </>
      );
 }
