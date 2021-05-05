@@ -1,6 +1,5 @@
 import { useAuth } from "./../Context/AuthUser";
-import { Route, Redirect } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Route, Redirect, useLocation } from "react-router-dom";
 
 export default function PrivateRoute({ children, ...rest }) {
      const location = useLocation();
@@ -13,11 +12,11 @@ export default function PrivateRoute({ children, ...rest }) {
                ) : (
                     <Redirect
                          to={{
-                              pathname: "login",
+                              pathname: "/login",
                               // state inja marboot be history mishe
                               // address felie user ro negah midarim ta bad az login be hamin safhe biad
                               state: {
-                                   from: location,
+                                from : location,
                               },
                          }}
                     />

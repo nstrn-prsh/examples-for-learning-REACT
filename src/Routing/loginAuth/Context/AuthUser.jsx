@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
                user: null,
           });
 
-          getUser().then((user) =>
+          getUser(username, password).then((user) =>
                setUser({
                     status: "success",
                     error: null,

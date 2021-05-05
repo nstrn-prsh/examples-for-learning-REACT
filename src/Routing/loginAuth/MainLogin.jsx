@@ -4,6 +4,7 @@ import Home from "./Components/Home";
 import Blog from "./Components/Blog";
 import Panel from "./Components/Panel";
 import PrivateRoute from './Components/PrivateRoute';
+import Login from './Components/Login';
 
 const MainLogin = () => {
      const auth = useAuth();
@@ -33,6 +34,9 @@ const MainLogin = () => {
                     <PrivateRoute path='/panel'>
                          <Panel />
                     </PrivateRoute>
+                    <Route path='/login'>
+                         <Login />
+                    </Route>
                </Switch>
           </>
      );
