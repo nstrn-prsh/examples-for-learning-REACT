@@ -3,6 +3,7 @@ import { Link, Switch, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Blog from "./Components/Blog";
 import Panel from "./Components/Panel";
+import PrivateRoute from './Components/PrivateRoute';
 
 const MainLogin = () => {
      const auth = useAuth();
@@ -29,9 +30,9 @@ const MainLogin = () => {
                     <Route path='/blog'>
                          <Blog />
                     </Route>
-                    <Route path='/panel'>
+                    <PrivateRoute path='/panel'>
                          <Panel />
-                    </Route>
+                    </PrivateRoute>
                </Switch>
           </>
      );
