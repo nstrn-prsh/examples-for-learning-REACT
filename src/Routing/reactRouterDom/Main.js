@@ -2,6 +2,7 @@ import Home from "./Home";
 import Blog from "./Blog";
 import Auth from "./Auth";
 import { Route, Switch, Link } from "react-router-dom";
+import Location from './Location';
 
 const Main = () => {
      return (
@@ -33,6 +34,7 @@ const Main = () => {
                     </li>
                </ul>
 
+               <Location />
                {/* first priority */}
                <Route
                     path='/link'
