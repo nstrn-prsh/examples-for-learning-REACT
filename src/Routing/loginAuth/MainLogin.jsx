@@ -1,5 +1,5 @@
 import { useAuth } from "./Context/AuthUser";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link, Switch, Route, NavLink } from "react-router-dom";
 import Home from "./Components/Home";
 import Blog from "./Components/Blog";
 import Panel from "./Components/Panel";
@@ -21,6 +21,24 @@ const MainLogin = () => {
                     </li>
                     <li>
                          <Link to='/panel'>Panel</Link>
+                    </li>
+                    <li>
+                         <NavLink
+                              to='/auth'
+                              /*
+                              isActive={(match, location) => {
+                                   console.log(match);
+                                   console.log(location);
+                                   // return true
+                              }}
+                              */
+                              activeStyle={{
+                                   color: "red",
+                              }}
+                              activeClassName='active'
+                         >
+                              NavLink is from Link
+                         </NavLink>
                     </li>
                </ul>
 
