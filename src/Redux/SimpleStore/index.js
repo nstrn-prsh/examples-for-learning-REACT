@@ -1,13 +1,15 @@
-const createStore = (reducer) => {
-     let state;
-     const dispatch = (action) => {
-          state = reducer(state, action);
-     };
+console.log(window.Redux);
 
-     const getState = () => state;
-     dispatch({});
-     return { dispatch, getState };
-};
+// const createStore = (reducer) => {
+//      let state;
+//      const dispatch = (action) => {
+//           state = reducer(state, action);
+//      };
+
+//      const getState = () => state;
+//      dispatch({});
+//      return { dispatch, getState };
+// };
 
 function counter(state = 0, action) {
      switch (action.type) {
@@ -20,13 +22,16 @@ function counter(state = 0, action) {
      }
 }
 
-const store = createStore(counter);
+// const store = createStore(counter);
+// console.log(store);
+const store = window.Redux.createStore(counter);
 console.log(store);
 console.log(store.getState());
 
+const unsubscribe = store.subscribe(() => console.log(store.getState()));
 store.dispatch({ type: "INCREMENT" });
+store.dispatch({ type: "DECREMENT" });
 store.dispatch({ type: "INCREMENT" });
+unsubscribe();
 store.dispatch({ type: "INCREMENT" });
 console.log(store.getState());
-
-store.subscribe(() => console.log(store.getState()));
