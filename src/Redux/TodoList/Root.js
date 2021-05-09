@@ -1,11 +1,11 @@
-import {createStore} from 'redux'
+import { createStore } from "redux";
 
 const initState = [
-    //  {
-    //       id: 1,
-    //       text: "task1",
-    //       completed: false,
-    //  },
+     //  {
+     //       id: 1,
+     //       text: "task1",
+     //       completed: false,
+     //  },
 ];
 
 const todoReducer = (state = initState, action) => {
@@ -35,4 +35,20 @@ const todoReducer = (state = initState, action) => {
      }
 };
 
-export const store= createStore(todoReducer)
+const filterReducer = (store = "SHOW_ALL", action) => {
+     switch (action.type) {
+          case "FILTER_TODO":
+               return action.filter;
+          default:
+               return store;
+     }
+};
+
+const todoApp = (state={}, action) => {
+     return {
+          todo: todoReducer(state.todo, action),
+          filter: filterReducer(state.filter, action),
+     };
+};
+
+export const store = createStore(todoApp);

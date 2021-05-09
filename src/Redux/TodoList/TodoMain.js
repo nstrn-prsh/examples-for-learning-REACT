@@ -1,10 +1,27 @@
 // import { useSelector, useDispatch } from "./storeProvider";
 import { useSelector, useDispatch } from "react-redux";
+
 let todoId = 0;
 
+const getFilter = (filter, todo) => {
+     switch (filter) {
+          case "SHOW_ALL":
+               return todo;
+          case "COMPLETED":
+               return todo.filter((todo) => todo.completed);
+          case "PENDING":
+               return todo.filter((todo) => !todo.completed);
+          default:
+               return todo
+     }
+};
+
 const TodoMain = ({ store }) => {
-     const todo = useSelector((state) => state);
-     const dispatch = useDispatch()
+     const todo = useSelector((state) => state.todo);
+     const filter = useSelector((state) => state.filter);
+     console.log(filter);
+
+     const dispatch = useDispatch();
 
      const handleInputValue = (event) => {
           if ("Enter" === event.code) {
@@ -19,11 +36,11 @@ const TodoMain = ({ store }) => {
      };
 
      const todos = todo
-          ? todo.map((todo) => (
+          ? getFilter(filter , todo).map((todo) => (
                  <li
                       key={todo.id}
                       onClick={() =>
-                         dispatch({
+                           dispatch({
                                 type: "TOGGLE_TODO",
                                 id: todo.id,
                            })
@@ -39,9 +56,21 @@ const TodoMain = ({ store }) => {
             ))
           : null;
 
+     const handleFilter = (filter) => {
+          dispatch({
+               type: "FILTER_TODO",
+               filter,
+          });
+     };
+
      return (
           <div style={{ margin: "50px" }}>
                <input type='text' onKeyDown={(e) => handleInputValue(e)} />
+               <button onClick={() => handleFilter("SHOW_ALL")}>all</button>
+               <button onClick={() => handleFilter("COMPLETED")}>
+                    completed
+               </button>
+               <button onClick={() => handleFilter("PENDING")}>pending</button>
                <ul>{todos}</ul>
           </div>
      );
