@@ -28,9 +28,33 @@ const store = window.Redux.createStore(counter);
 console.log(store);
 console.log(store.getState());
 
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
+function Counter({ value, onIncrement, onDecrement }) {
+     return (
+          <>
+               <p>{value}</p>
+               <button onClick={onIncrement}>increment</button>
+               <button onClick={onDecrement}>decrement</button>
+          </>
+     );
+}
+
+// const render = () => (document.body.innerText = store.getState());
+const render = () => {
+     window.ReactDOM.render(
+          <Counter
+               value={store.getState()}
+               onIncrement={() => store.dispatch({ type: "INCREMENT" })}
+               onDecrement={() => store.dispatch({ type: "DECREMENT" })}
+          />,
+          document.getElementById("main")
+     );
+};
+
+const unsubscribe = store.subscribe(render);
+
+render();
 store.dispatch({ type: "INCREMENT" });
-store.dispatch({ type: "DECREMENT" });
+store.dispatch({ type: "INCREMENT" });
 store.dispatch({ type: "INCREMENT" });
 unsubscribe();
 store.dispatch({ type: "INCREMENT" });
