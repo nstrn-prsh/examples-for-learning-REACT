@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
-
+// import { useSelector, useDispatch } from "./storeProvider";
+import { useSelector, useDispatch } from "react-redux";
 let todoId = 0;
 
 const TodoMain = ({ store }) => {
-     const [, forceUpdate] = useState(0);
-
-     useEffect(() => {
-          const unSubscribe = store.subscribe(() => forceUpdate((c) => c + 1));
-          return () => unSubscribe();
-     }, [store]);
+     const todo = useSelector((state) => state);
+     const dispatch = useDispatch()
 
      const handleInputValue = (event) => {
           if ("Enter" === event.code) {
                const { target } = event;
-               store.dispatch({
+               dispatch({
                     type: "ADD_TODO",
                     id: todoId++,
                     text: target.value,
@@ -22,22 +18,26 @@ const TodoMain = ({ store }) => {
           }
      };
 
-     const todos = store.getState().map((todo) => (
-          <li
-               key={todo.id}
-               onClick={() =>
-                    store.dispatch({
-                         type: "TOGGLE_TODO",
-                         id: todo.id,
-                    })
-               }
-               style={{
-                    textDecoration: todo.completed ? "line-through" : "none",
-               }}
-          >
-               {todo.text}
-          </li>
-     ));
+     const todos = todo
+          ? todo.map((todo) => (
+                 <li
+                      key={todo.id}
+                      onClick={() =>
+                         dispatch({
+                                type: "TOGGLE_TODO",
+                                id: todo.id,
+                           })
+                      }
+                      style={{
+                           textDecoration: todo.completed
+                                ? "line-through"
+                                : "none",
+                      }}
+                 >
+                      {todo.text}
+                 </li>
+            ))
+          : null;
 
      return (
           <div style={{ margin: "50px" }}>
