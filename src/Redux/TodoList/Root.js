@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 
 const initState = [
      //  {
@@ -44,11 +44,26 @@ const filterReducer = (store = "SHOW_ALL", action) => {
      }
 };
 
-const todoApp = (state={}, action) => {
-     return {
-          todo: todoReducer(state.todo, action),
-          filter: filterReducer(state.filter, action),
-     };
+// const combineReducers = (reducers) => {
+//      return (state = {}, action) => {
+//           return Object.keys(reducers).reduce((nextState, key) => {
+//                nextState[key] = reducers[key](state[key], action);
+//                return nextState;
+//           }, {});
+//      };
+// };
+
+const reducers = {
+     todo: todoReducer,
+     filter:filterReducer,
 };
 
-export const store = createStore(todoApp);
+// const todoApp = (state={}, action) => {
+//      return {
+//           todo: todoReducer(state.todo, action),
+//           filter: filterReducer(state.filter, action),
+//      };
+// };
+
+// export const store = createStore(todoApp);
+export const store = createStore(combineReducers(reducers));

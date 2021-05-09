@@ -65,12 +65,13 @@ const TodoMain = ({ store }) => {
 
      return (
           <div style={{ margin: "50px" }}>
-               <input type='text' onKeyDown={(e) => handleInputValue(e)} />
                <button onClick={() => handleFilter("SHOW_ALL")}>all</button>
                <button onClick={() => handleFilter("COMPLETED")}>
                     completed
                </button>
                <button onClick={() => handleFilter("PENDING")}>pending</button>
+               <br/> <br/> 
+               <input type='text' onKeyDown={(e) => handleInputValue(e)} />
                <ul>{todos}</ul>
           </div>
      );
