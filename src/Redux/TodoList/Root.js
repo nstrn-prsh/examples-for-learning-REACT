@@ -114,10 +114,16 @@ const todoApp = (state = {}, action) => {
 /**** 29 ****/
 const fetchTodosMiddleWare = (storeApi) => (next) => (action) => {
      if (action.type === "todos/fetchTodos") {
-          client.get("todos").then((todos) => console.log(todos));
+          client.get("todos").then((todos) => {
+               storeApi.dispatch({
+                    type: "todos/todosLoaded",
+                    payload: todos,
+               });
+          });
      }
      next(action);
 };
+//  sepas action  "todos/todosLoaded" mitone todo haro be list ezafe kone
 
 const composeEnhancer = composeWithDevTools(
      applyMiddleware(fetchTodosMiddleWare)
