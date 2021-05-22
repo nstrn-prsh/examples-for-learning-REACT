@@ -1,5 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 import { logDispatch, logState } from "./enhancers";
 
 const initState = [
@@ -124,7 +125,7 @@ const todoApp = (state = {}, action) => {
 };*/
 
 //  sepas action  "todos/todosLoaded" mitone todo haro be list ezafe kone
-
+/*
 const fetchTodosMiddleWare = (storeApi) => (next) => (action) => {
      if (typeof action === "function") {
           return action(storeApi.dispatch, storeApi.getState);
@@ -136,4 +137,9 @@ const composeEnhancer = composeWithDevTools(
      applyMiddleware(fetchTodosMiddleWare)
 );
 
+export const store = createStore(combineReducers(reducers), composeEnhancer);
+*/
+
+//  f30 - thunk
+const composeEnhancer = composeWithDevTools(applyMiddleware(thunk));
 export const store = createStore(combineReducers(reducers), composeEnhancer);
