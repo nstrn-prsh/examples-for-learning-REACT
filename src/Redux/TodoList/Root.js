@@ -1,4 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { client } from "./client/client";
 import { logDispatch, logState } from "./enhancers";
 
 const initState = [
@@ -59,52 +61,66 @@ const reducers = {
      filter: filterReducer,
 };
 
-// const todoApp = (state={}, action) => {
-//      return {
-//           todo: todoReducer(state.todo, action),
-//           filter: filterReducer(state.filter, action),
-//      };
-// };
-
-const preloadedState = [
-     {
-          id: 1,
-          text: "task1",
-          completed: false,
-     },
-];
-
-/*const enhancers = compose(logDispatch, logState);*/
-const print1 = (storeApi) => (next) => (action) => {
-     console.log("action:", action);
-     next(action);
-     console.log("new state:", storeApi.getState());
+const todoApp = (state = {}, action) => {
+     return {
+          todo: todoReducer(state.todo, action),
+          filter: filterReducer(state.filter, action),
+     };
 };
 
-function print2(storeApi) {
-     return function wrapDispatch(next) {
-         return function handleAction2(action) {
-               console.log(2);
-               return next(action);
-          }
-     };
-}
+// const preloadedState = [
+//      {
+//           id: 1,
+//           text: "task1",
+//           completed: false,
+//      },
+// ];
 
-function print3(storeApi) {
-     return function wrapDispatch(next) {
-          return function handleAction3(action) {
-               console.log(3);
-               return next(action);
-          }
-     };
-}
+/*const enhancers = compose(logDispatch, logState);*/
+// const print1 = (storeApi) => (next) => (action) => {
+//      console.log("action:", action);
+//      next(action);
+//      console.log("new state:", storeApi.getState());
+// };
 
-const middleWare = applyMiddleware(print1, print2, print3);
+// function print2(storeApi) {
+//      return function wrapDispatch(next) {
+//          return function handleAction2(action) {
+//                console.log(2);
+//                return next(action);
+//           }
+//      };
+// }
+
+// function print3(storeApi) {
+//      return function wrapDispatch(next) {
+//           return function handleAction3(action) {
+//                console.log(3);
+//                return next(action);
+//           }
+//      };
+// }
+
+// const middleWare = applyMiddleware(print1, print2, print3);
 
 // export const store = createStore(todoApp);
-export const store = createStore(
-     combineReducers(reducers),
-     preloadedState,
-     middleWare
-     // enhancers
+// export const store = createStore(
+//      combineReducers(reducers),
+//      preloadedState,
+//      middleWare
+// enhancers
+// );
+
+/**** 29 ****/
+const fetchTodosMiddleWare = (storeApi) => (next) => (action) => {
+     if (action.type === "todos/fetchTodos") {
+          client.get("todos").then((todos) => console.log(todos));
+     }
+     next(action);
+};
+
+const composeEnhancer = composeWithDevTools(
+     applyMiddleware(fetchTodosMiddleWare)
 );
+
+export const store = createStore(combineReducers(reducers), composeEnhancer);
