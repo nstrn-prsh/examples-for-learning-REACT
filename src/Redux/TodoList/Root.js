@@ -1,6 +1,5 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { client } from "./client/client";
 import { logDispatch, logState } from "./enhancers";
 
 const initState = [
@@ -112,7 +111,7 @@ const todoApp = (state = {}, action) => {
 // );
 
 /**** 29 ****/
-const fetchTodosMiddleWare = (storeApi) => (next) => (action) => {
+/*const fetchTodosMiddleWare = (storeApi) => (next) => (action) => {
      if (action.type === "todos/fetchTodos") {
           client.get("todos").then((todos) => {
                storeApi.dispatch({
@@ -122,8 +121,16 @@ const fetchTodosMiddleWare = (storeApi) => (next) => (action) => {
           });
      }
      next(action);
-};
+};*/
+
 //  sepas action  "todos/todosLoaded" mitone todo haro be list ezafe kone
+
+const fetchTodosMiddleWare = (storeApi) => (next) => (action) => {
+     if (typeof action === "function") {
+          return action(storeApi.dispatch, storeApi.getState);
+     }
+     return next(action);
+};
 
 const composeEnhancer = composeWithDevTools(
      applyMiddleware(fetchTodosMiddleWare)
