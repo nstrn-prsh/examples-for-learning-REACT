@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, compose } from "redux";
+import { logDispatch, logState } from './enhancers';
 
 const initState = [
      //  {
@@ -55,7 +56,7 @@ const filterReducer = (store = "SHOW_ALL", action) => {
 
 const reducers = {
      todo: todoReducer,
-     filter:filterReducer,
+     filter: filterReducer,
 };
 
 // const todoApp = (state={}, action) => {
@@ -65,5 +66,18 @@ const reducers = {
 //      };
 // };
 
+const preloadedState = [
+     {
+          id: 1,
+          text: "task1",
+          completed: false,
+     },
+];
+const enhancers = compose(logDispatch, logState);
+
 // export const store = createStore(todoApp);
-export const store = createStore(combineReducers(reducers));
+export const store = createStore(
+     combineReducers(reducers),
+     preloadedState,
+     enhancers
+);
