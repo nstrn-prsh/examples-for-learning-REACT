@@ -1,5 +1,5 @@
-import { createStore, combineReducers, compose } from "redux";
-import { logDispatch, logState } from './enhancers';
+import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import { logDispatch, logState } from "./enhancers";
 
 const initState = [
      //  {
@@ -73,11 +73,38 @@ const preloadedState = [
           completed: false,
      },
 ];
-const enhancers = compose(logDispatch, logState);
+
+/*const enhancers = compose(logDispatch, logState);*/
+const print1 = (storeApi) => (next) => (action) => {
+     console.log("action:", action);
+     next(action);
+     console.log("new state:", storeApi.getState());
+};
+
+function print2(storeApi) {
+     return function wrapDispatch(next) {
+         return function handleAction2(action) {
+               console.log(2);
+               return next(action);
+          }
+     };
+}
+
+function print3(storeApi) {
+     return function wrapDispatch(next) {
+          return function handleAction3(action) {
+               console.log(3);
+               return next(action);
+          }
+     };
+}
+
+const middleWare = applyMiddleware(print1, print2, print3);
 
 // export const store = createStore(todoApp);
 export const store = createStore(
      combineReducers(reducers),
      preloadedState,
-     enhancers
+     middleWare
+     // enhancers
 );
