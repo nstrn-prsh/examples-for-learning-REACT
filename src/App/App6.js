@@ -1,9 +1,12 @@
-import { store } from "../Redux/TodoList/Root";
-import TodoMain from "./../Redux/TodoList/TodoMain";
+// import { store } from "../Redux/TodoList/Root";
+// import TodoMain from "./../Redux/TodoList/TodoMain";
 import { Provider } from "react-redux";
-import { client } from "../Redux/TodoList/client/client";
+// import { client } from "../Redux/TodoList/client/client";
+import store from "./../reduxToolkit/store";
+import App from "../reduxToolkit/App";
+import { fetchTodos } from "./../reduxToolkit/todosSlice";
 
-
+/*
 const fetchTodos = (dispatch, getState) => {
      client.get("todos").then((todos) => {
           dispatch({
@@ -14,12 +17,16 @@ const fetchTodos = (dispatch, getState) => {
 };
 
 store.dispatch(fetchTodos);
+*/
+
+store.dispatch(fetchTodos());
 
 const App6 = () => {
      return (
           <>
                <Provider store={store}>
-                    <TodoMain />
+                    {/* <TodoMain /> */}
+                    <App />
                </Provider>
           </>
      );
