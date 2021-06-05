@@ -12,22 +12,33 @@ export const fetchTodos = createAsyncThunk(
      "todos/fetchTodos",
      async (params, thunkApi) => {
           // logic baraye daryafte todos az server
-          const res = await client.get('todos');
-          console.log(res);
+          return await client.get("todos");
      }
 );
-console.log(fetchTodos);
-console.log(fetchTodos());
-console.log(fetchTodos.pending());
-console.log(fetchTodos.fulfilled());
-console.log(fetchTodos.rejected());
+// console.log(fetchTodos);
+// console.log(fetchTodos());
+// console.log(fetchTodos.pending());
+// console.log(fetchTodos.fulfilled());
+// console.log(fetchTodos.rejected());
 
 const todosReducer = createReducer(initialState, (builder) => {
      builder
           // fetchTodos.pending hamoon action type hast
           .addCase(fetchTodos.pending, (state, action) => {
                state.status = "pending";
-          });
+          })
+          .addCase(fetchTodos.fulfilled, (state, action) => {
+               const todos = action.payload;
+               const newEntities = {};
+               todos.forEach((todo) => {
+                    newEntities[todo.id] = todo;
+               });
+               state.entities = newEntities;
+               state.status = "idle";
+          })
+          .addCase(fetchTodos.rejected, (state,action)=>{
+               
+          })
 });
 
 export default todosReducer;
