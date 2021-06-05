@@ -20,6 +20,12 @@ store.dispatch(fetchTodos);
 */
 
 store.dispatch(fetchTodos());
+store.dispatch(fetchTodos());
+store.dispatch(fetchTodos());
+
+// f40: cancellation
+const prom = store.dispatch(fetchTodos());
+prom.abort();
 
 const App6 = () => {
      return (

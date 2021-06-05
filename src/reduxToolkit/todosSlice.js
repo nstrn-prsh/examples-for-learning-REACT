@@ -13,6 +13,16 @@ export const fetchTodos = createAsyncThunk(
      async (params, thunkApi) => {
           // logic baraye daryafte todos az server
           return await client.get("todos");
+     },
+     //f40: cancellation
+     {
+          condition: (params, { getState }) => {
+               const { todos } = getState();
+               // age status pending bood jelosho migirim
+               if ("pending" === todos.status) {
+                    return false;
+               }
+          },
      }
 );
 // console.log(fetchTodos);
@@ -36,9 +46,7 @@ const todosReducer = createReducer(initialState, (builder) => {
                state.entities = newEntities;
                state.status = "idle";
           })
-          .addCase(fetchTodos.rejected, (state,action)=>{
-               
-          })
+          .addCase(fetchTodos.rejected, (state, action) => {});
 });
 
 export default todosReducer;
