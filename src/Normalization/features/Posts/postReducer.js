@@ -3,6 +3,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 // const initialState = [
 //      {
 //           id: 1,
+//           title: "port title 1",
 //           body: "post body 1",
 //           comments: [
 //                {
@@ -21,8 +22,20 @@ const postSlice = createSlice({
      name: "posts",
      initialState: [],
      reducers: {
-          addNewPost(state, action) {
-               state.push(action.payload);
+          addNewPost: {
+               reducer(state, action) {
+                    state.push(action.payload);
+               },
+               prepare(title, body) {
+                    return {
+                         payload: {
+                              id: nanoid(),
+                              title,
+                              body,
+                              comments: [],
+                         },
+                    };
+               },
           },
           // ezafe kardane comment
           addNewComment: {
@@ -35,13 +48,13 @@ const postSlice = createSlice({
                          }
                     });
                },
-               prepare(postId, commentText) {
+               prepare(postId, commentBody) {
                     return {
                          payload: {
                               postId,
                               comment: {
                                    id: nanoid(),
-                                   commentText,
+                                   commentBody,
                               },
                          },
                     };
@@ -50,23 +63,26 @@ const postSlice = createSlice({
           // update kardane comment
           updateComments: {
                reducer(state, action) {
-                    const { postId, commentId, newComment } = action.payload;
-                    state.forEach((post) => {
-                         if (postId === post.id) {
-                              post.comments.forEach((comment) => {
-                                   if (commentId === comment.id)
-                                        comment.comment = newComment;
-                              });
-                         }
+                    const { commentId, newComment } = action.payload;
+                    state.some((post) => {
+                         post.comments.forEach((comment) => {
+                              if (commentId === comment.id) {
+                                   comment.commentBody = newComment;
+                                   return true;
+                              }
+                         });
+                         return false;
                     });
                },
-               prepare(postId, commentId, newComment) {
+               prepare(commentId, newComment) {
                     return {
-                         payload: { postId, commentId, newComment },
+                         payload: { commentId, newComment },
                     };
                },
           },
      },
 });
+
+export const { addNewPost, addNewComment, updateComments } = postSlice.actions;
 
 export default postSlice.reducer;
