@@ -1,12 +1,17 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addNewComment, updateComments } from "./postReducer";
 import Faker from "Faker";
+import { addNewComment, updateComments } from "./commentSlice";
 
-const ShowComments = ({ comment }) => {
+const ShowComments = ({ id }) => {
+     // oni ke idish barabare be soorate araye bargardoon
+     const comment = useSelector((state) => {
+          return state.comments.filter((comment) => id === comment.id)[0];
+     });
      const dispatch = useDispatch();
+
      const handleUpdateComment = () => {
-          dispatch(updateComments(comment.id, Faker.lorem.sentence()));
+          dispatch(updateComments(id, Faker.lorem.sentence()));
      };
 
      return (
@@ -24,15 +29,13 @@ const Post = ({ post }) => {
           dispatch(addNewComment(post.id, Faker.lorem.sentence()));
      };
 
-     const comments = post.comments.map((comment) => (
-          <ShowComments key={comment.id} comment={comment} />
-     ));
-
      return (
           <div className='post'>
                <p>{post.title}</p>
                <button onClick={handleNewComment}>Add New Comment</button>
-               {comments}
+               {post.comments.map((commentId) => (
+                    <ShowComments key={commentId} id={commentId} />
+               ))}
           </div>
      );
 };
