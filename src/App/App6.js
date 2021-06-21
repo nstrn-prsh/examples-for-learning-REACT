@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 // import { fetchTodos } from "./../reduxToolkit/todosSlice";
 import Posts from "./../Normalization/features/Posts/Posts";
 import store from "./../Normalization/redux/store";
-import AddPost from './../Normalization/features/Posts/AddNewPost';
+import AddPost from './../Normalization/features/Posts/AddPost';
 import './../Normalization/features/app.css'
 
 /*

@@ -1,28 +1,27 @@
 import { useSelector, useDispatch } from "react-redux";
 import Faker from "Faker";
-import { addNewComment, updateComments } from "./commentSlice";
+import { addNewComment, updateComment } from "./commentSlice";
 
-const ShowComments = ({ id }) => {
+// show comments
+function Comment({ id }) {
      // oni ke idish barabare be soorate araye bargardoon
-     const comment = useSelector(
-          (state) => state.comments.byId[id]
-          // return state.comments.filter((comment) => id === comment.id)[0];
-     );
+     // return state.comments.filter((comment) => id === comment.id)[0];
+     const comment = useSelector((state) => state.comments.byId[id]);
      const dispatch = useDispatch();
 
      const handleUpdateComment = () => {
-          dispatch(updateComments(id, Faker.lorem.sentence()));
+          dispatch(updateComment(id, Faker.lorem.sentence()));
      };
 
      return (
           <div className='comment'>
-               <button onClick={handleUpdateComment}>update comment</button>
-               <p>{comment.commentBody}</p>
+               <button onClick={handleUpdateComment}>Update comment</button>
+               <p>{comment.body}</p>
           </div>
      );
-};
+}
 
-const Post = ({ id }) => {
+function Post({ id }) {
      const post = useSelector((state) => state.posts.byId[id]);
      const dispatch = useDispatch();
 
@@ -33,21 +32,19 @@ const Post = ({ id }) => {
      return (
           <div className='post'>
                <p>{post.title}</p>
-               <button onClick={handleNewComment}>Add New Comment</button>
+               <button onClick={handleNewComment}>Add new comment</button>
                {post.comments.map((commentId) => (
-                    <ShowComments key={commentId} id={commentId} />
+                    <Comment id={commentId} key={commentId} />
                ))}
           </div>
      );
-};
+}
 
-export default function Posts() {
+function Posts() {
      const postIds = useSelector((state) => state.posts.allIds);
      const postCm = postIds.map((id) => <Post id={id} key={id} />);
 
-     return (
-          <div>
-               <div>{postCm}</div>
-          </div>
-     );
+     return <div>{postCm}</div>;
 }
+
+export default Posts;

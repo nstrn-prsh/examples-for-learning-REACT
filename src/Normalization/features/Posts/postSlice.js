@@ -46,19 +46,18 @@ const postSlice = createSlice({
                     };
                },
           },
-          // new: f44
-          // baraye ezafe kardane comment ye action factory hast ke id ro ezafe mikone
-          extraReducers: (builder) => {
-               builder.addCase(addNewComment, (state, action) => {
-                    // commentSlice/addNewComment/payload
-                    const { postId, comment } = action.payload;
-
-                    state.byId[postId].comments.push(comment.id);
-                    /*state.forEach((post) => {
-                         if (postId === post.id) post.comments.push(comment.id);
-                    });*/
-               });
-          },
+     },
+     // new: f44
+     // baraye ezafe kardane comment ye action factory hast ke id ro ezafe mikone
+     extraReducers: (builder) => {
+          builder.addCase(addNewComment, (state, action) => {
+               // commentSlice/addNewComment/payload
+               const { postId, comment } = action.payload;
+               state.byId[postId].comments.push(comment.id);
+               /*state.forEach((post) => {
+                          if (postId === post.id) post.comments.push(comment.id);
+                     });*/
+          });
      },
 });
 
