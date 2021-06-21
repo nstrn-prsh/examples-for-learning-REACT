@@ -19,13 +19,21 @@ import { addNewComment } from "./commentSlice";
 //      },
 // ];
 
+const initialState = {
+     byId: {},
+     allIds: [],
+};
+
 const postSlice = createSlice({
      name: "posts",
-     initialState: [],
+     initialState,
      reducers: {
           addNewPost: {
                reducer(state, action) {
-                    state.push(action.payload);
+                    // state.push(action.payload);
+                    const { payload } = action;
+                    state.byId[payload.id] = payload;
+                    state.allIds.push(payload.id);
                },
                prepare(title, body) {
                     return {
@@ -44,9 +52,11 @@ const postSlice = createSlice({
                builder.addCase(addNewComment, (state, action) => {
                     // commentSlice/addNewComment/payload
                     const { postId, comment } = action.payload;
-                    state.forEach((post) => {
+
+                    state.byId[postId].comments.push(comment.id);
+                    /*state.forEach((post) => {
                          if (postId === post.id) post.comments.push(comment.id);
-                    });
+                    });*/
                });
           },
      },

@@ -4,6 +4,7 @@ import Faker from "Faker";
 
 const AddPost = () => {
      const dispatch = useDispatch();
+     
      const handleNewPost = () => {
           dispatch(addNewPost(Faker.lorem.sentence(), Faker.lorem.paragraph()));
      };
