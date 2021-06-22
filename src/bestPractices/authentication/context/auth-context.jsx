@@ -1,4 +1,5 @@
 import React, { useReducer, useContext, createContext } from "react";
+import { initialState, reducer } from "./reducer";
 
 const AuthStateContext = createContext();
 const AuthDisptacherContext = createContext();
@@ -6,7 +7,7 @@ const AuthDisptacherContext = createContext();
 // custom hook baraye consumer har
 export function useAuthState() {
      const context = useContext(AuthStateContext);
-    //  age context meghdar dehi nashode bood yani AuthProvider khali hast pas ye error bayad ijad konim
+     //  age context meghdar dehi nashode bood yani AuthProvider khali hast pas ye error bayad ijad konim
      if (!context) {
           throw Error("useAuthState must be used with a AuthProvider");
      }

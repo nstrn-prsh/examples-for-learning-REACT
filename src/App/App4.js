@@ -23,9 +23,7 @@ function App4() {
                {/* <Implement /> */}
                {/* <Layout /> */}
                <AuthProvider>
-                    <div>
-                         <Login />
-                    </div>
+                    <Login />
                </AuthProvider>
           </Fragment>
      );
