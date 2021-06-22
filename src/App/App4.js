@@ -9,7 +9,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import Implement from "../bestPractices/HttpClient/Implement";
 // import Layout from './../bestPractices/layout/Layout';
 import { AuthProvider } from "../bestPractices/authentication/context/auth-context";
-import Login from "./../bestPractices/authentication/Login";
+import App from "./../bestPractices/authentication/App";
 
 function App4() {
      return (
@@ -23,7 +23,7 @@ function App4() {
                {/* <Implement /> */}
                {/* <Layout /> */}
                <AuthProvider>
-                    <Login />
+                    <App />
                </AuthProvider>
           </Fragment>
      );
