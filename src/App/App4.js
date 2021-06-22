@@ -7,7 +7,9 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 // import Global from "./../bestPractices/contextApi/class/Global";
 // import Container from './../bestPractices/pattern/container';
 // import Implement from "../bestPractices/HttpClient/Implement";
-import Layout from './../bestPractices/layout/Layout';
+// import Layout from './../bestPractices/layout/Layout';
+import { AuthProvider } from "../bestPractices/authentication/context/auth-context";
+import Login from "./../bestPractices/authentication/Login";
 
 function App4() {
      return (
@@ -19,7 +21,12 @@ function App4() {
                {/* <Global /> */}
                {/* <Container /> */}
                {/* <Implement /> */}
-               <Layout />
+               {/* <Layout /> */}
+               <AuthProvider>
+                    <div>
+                         <Login />
+                    </div>
+               </AuthProvider>
           </Fragment>
      );
 }
